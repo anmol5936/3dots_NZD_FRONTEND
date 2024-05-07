@@ -38,7 +38,7 @@ function Layout(props) {
 
   const router = useRouter();
   const pathname = usePathname();
-    const { window } = props;
+   
   const {children} = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
@@ -128,8 +128,6 @@ function Layout(props) {
     </div>
   );
 
-  // Remove this const when copying and pasting into your project.
-  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -164,7 +162,6 @@ function Layout(props) {
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onTransitionEnd={handleDrawerTransitionEnd}
@@ -233,7 +230,7 @@ Layout.propTypes = {
    * Injected by the documentation to work in an iframe.
    * Remove this when copying and pasting into your project.
    */
-  window: PropTypes.func,
+
   children:PropTypes.array,
 };
 
